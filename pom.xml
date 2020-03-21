@@ -134,6 +134,7 @@
               <arg>-AskipUses=org\.assertj\.</arg>
               <arg>-Xlint:all</arg>
               <arg>-Xlint:-processing</arg>
+              <arg>-Xlint:-serial</arg>
               <arg>-XDcompilePolicy=simple</arg>
               <arg>-Xplugin:ErrorProne</arg>
             </compilerArgs>
