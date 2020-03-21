@@ -132,6 +132,7 @@
             <compilerArgs>
               <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED</arg>
               <arg>-AskipUses=org\.assertj\.</arg>
+              <arg>-Xlint:all</arg>
               <arg>-XDcompilePolicy=simple</arg>
               <arg>-Xplugin:ErrorProne</arg>
             </compilerArgs>
