@@ -132,6 +132,7 @@
             <compilerArgs>
               <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED</arg>
               <arg>-AskipUses=org\.assertj\.</arg>
+              <arg>-Werror</arg>
               <arg>-Xlint:all</arg>
               <arg>-Xlint:-processing</arg>
               <arg>-Xlint:-serial</arg>
