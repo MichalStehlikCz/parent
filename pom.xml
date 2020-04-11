@@ -159,7 +159,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-jar-plugin</artifactId>
-          <version>3.1.0</version>
+          <version>3.1.1</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -169,12 +169,12 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
-          <version>3.0.0-M1</version>
+          <version>3.0.0-M3</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-failsafe-plugin</artifactId>
-          <version>3.0.0-M1</version>
+          <version>3.0.0-M3</version>
           <executions>
             <execution>
               <goals>
@@ -187,7 +187,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-javadoc-plugin</artifactId>
-          <version>3.0.1</version>
+          <version>3.1.0</version>
           <executions>
             <execution>
               <id>attach-javadocs</id>
@@ -210,7 +210,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-enforcer-plugin</artifactId>
-          <version>3.0.0-M1</version>
+          <version>3.0.0-M2</version>
           <executions>
             <execution>
               <id>enforce-plugin-versions</id>
@@ -219,6 +219,9 @@
               </goals>
               <configuration>
                 <rules>
+                  <requireMavenVersion>
+                    <version>3.0.5</version>
+                  </requireMavenVersion>
                   <requirePluginVersions>
                     <message>Verifies that all plugins have versions specified!</message>
                     <banLatest>true</banLatest>
