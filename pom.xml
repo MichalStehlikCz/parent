@@ -188,6 +188,7 @@
               <arg>-Xlint:-serial</arg>
               <arg>-XDcompilePolicy=simple</arg>
               <arg>-Xplugin:ErrorProne</arg>
+              <arg>-Xep:EqualsGetClass:OFF</arg>
             </compilerArgs>
           </configuration>
         </plugin>
