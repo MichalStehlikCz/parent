@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.provys.parent</groupId>
   <artifactId>parent</artifactId>
@@ -177,7 +179,8 @@
               </path>
             </annotationProcessorPaths>
             <annotationProcessors>
-              <annotationProcessor>org.checkerframework.checker.nullness.NullnessChecker</annotationProcessor>
+              <annotationProcessor>org.checkerframework.checker.nullness.NullnessChecker
+              </annotationProcessor>
             </annotationProcessors>
             <compilerArgs>
               <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED</arg>
@@ -187,8 +190,9 @@
               <arg>-Xlint:-processing</arg>
               <arg>-Xlint:-serial</arg>
               <arg>-XDcompilePolicy=simple</arg>
-              <arg>-Xplugin:ErrorProne</arg>
-              <arg>-Xep:EqualsGetClass:OFF</arg>
+              <arg>-Xplugin:ErrorProne
+                -Xep:EqualsGetClass:OFF
+              </arg>
             </compilerArgs>
           </configuration>
         </plugin>
