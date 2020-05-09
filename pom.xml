@@ -212,7 +212,9 @@
             </annotationProcessors>
             <compilerArgs>
               <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED</arg>
-              <arg>-AskipUses=org\.assertj\.</arg>
+              <!--generated xjc files should be ignored, assertj is not annotated -->
+              <arg>-AskipUses=^org\.assertj\.|\.xjc\.</arg>
+              <arg>-AskipDefs=\.xjc\.</arg>
               <arg>-Werror</arg>
               <arg>-Xlint:all</arg>
               <arg>-Xlint:-processing</arg>
