@@ -28,13 +28,13 @@
   </distributionManagement>
   <dependencyManagement>
     <dependencies>
-      <dependency>
+      <!--dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-dependencies</artifactId>
-        <version>2.2.6.RELEASE</version>
+        <version>2.3.0.RELEASE</version>
         <type>pom</type>
         <scope>import</scope>
-      </dependency>
+      </dependency-->
       <dependency>
         <groupId>io.springfox</groupId>
         <artifactId>springfox-swagger2</artifactId>
@@ -73,7 +73,7 @@
       <dependency>
         <groupId>com.fasterxml.woodstox</groupId>
         <artifactId>woodstox-core</artifactId>
-        <version>6.2.0</version>
+        <version>6.2.1</version>
       </dependency>
       <dependency>
         <groupId>com.fasterxml.jackson.dataformat</groupId>
@@ -266,7 +266,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-war-plugin</artifactId>
-          <version>3.2.0</version>
+          <version>3.2.2</version>
           <configuration>
             <failOnMissingWebXml>false</failOnMissingWebXml>
           </configuration>
@@ -325,9 +325,14 @@
           </configuration>
         </plugin>
         <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>exec-maven-plugin</artifactId>
+          <version>1.6.0</version>
+        </plugin>
+        <plugin>
           <groupId>org.springframework.boot</groupId>
           <artifactId>spring-boot-maven-plugin</artifactId>
-          <version>2.2.2.RELEASE</version>
+          <version>2.3.0.RELEASE</version>
           <executions>
             <execution>
               <goals>
