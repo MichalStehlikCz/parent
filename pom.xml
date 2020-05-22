@@ -28,13 +28,13 @@
   </distributionManagement>
   <dependencyManagement>
     <dependencies>
-      <!--dependency>
+      <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-dependencies</artifactId>
         <version>2.3.0.RELEASE</version>
         <type>pom</type>
         <scope>import</scope>
-      </dependency-->
+      </dependency>
       <dependency>
         <groupId>io.springfox</groupId>
         <artifactId>springfox-swagger2</artifactId>
@@ -88,6 +88,11 @@
       <dependency>
         <groupId>org.apache.maven.plugin-tools</groupId>
         <artifactId>maven-plugin-annotations</artifactId>
+        <version>3.6.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.maven</groupId>
+        <artifactId>maven-project</artifactId>
         <version>3.6.0</version>
       </dependency>
       <dependency>
