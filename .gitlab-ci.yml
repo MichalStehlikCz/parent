@@ -1,0 +1,50 @@
+stages:
+  - cleanup
+  - build
+  - test
+  - deploy
+
+
+variables:
+  GIT_CLEAN_FLAGS: none
+
+
+maven-clean:
+  stage: cleanup
+  only:
+    - tags
+  tags:
+    - pvysbuilder-java-docker
+  script:
+    - mvn --settings /home/gitlab-runner/.m2/settings.xml clean
+  when: always
+
+maven-build:
+  stage: build
+  only:
+    - tags
+  tags:
+    - pvysbuilder-java-docker
+  script:
+    - mvn --settings /home/gitlab-runner/.m2/settings.xml compile
+
+
+maven-test:
+  stage: test
+  only:
+    - tags
+  tags:
+    - pvysbuilder-java-docker
+  script:
+    - mvn --settings /home/gitlab-runner/.m2/settings.xml test
+
+
+maven-deploy:
+  stage: deploy
+  only:
+    - tags
+  tags:
+    - pvysbuilder-java-docker
+  script:
+    - mvn --settings /home/gitlab-runner/.m2/settings.xml deploy -DskipTests
+

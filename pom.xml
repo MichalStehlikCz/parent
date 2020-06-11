@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.provys.parent</groupId>
   <artifactId>parent</artifactId>
@@ -9,21 +11,17 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <scm>
-    <developerConnection>scm:git:https://github.com/MichalStehlikCz/parent.git</developerConnection>
+    <developerConnection>scm:git:git@git.dcit.cz:pvyscomponents/java/libs/parent.git</developerConnection>
     <tag>HEAD</tag>
   </scm>
-  <repositories>
-    <repository>
-      <id>central</id>
-      <name>Maven Central</name>
-      <url>https://repo1.maven.org/maven2</url>
-    </repository>
-  </repositories>
   <distributionManagement>
+    <snapshotRepository>
+      <id>provys-maven-snapshots</id>
+      <url>http://pvysnexus.dcit.cz:8081/repository/provys-maven-snapshots/</url>
+    </snapshotRepository>
     <repository>
-      <id>github</id>
-      <name>GitHub MichalStehlikCz Maven Packages</name>
-      <url>https://maven.pkg.github.com/MichalStehlikCz/Maven</url>
+      <id>provys-maven-releases</id>
+      <url>http://pvysnexus.dcit.cz:8081/repository/provys-maven-releases/</url>
     </repository>
   </distributionManagement>
   <dependencyManagement>
@@ -162,7 +160,7 @@
                     <banRelease>true</banRelease>
                     <banSnapshots>false</banSnapshots>
                   </requirePluginVersions>
-                  <dependencyConvergence />
+                  <dependencyConvergence/>
                 </rules>
               </configuration>
             </execution>
