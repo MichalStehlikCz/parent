@@ -3,14 +3,14 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.provys.parent</groupId>
   <artifactId>parent</artifactId>
-  <version>1.12.0</version>
+  <version>1.12.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <scm>
     <developerConnection>scm:git:git@git.dcit.cz:pvyscomponents/java/libs/parent.git</developerConnection>
-    <tag>RELEASE-parent-1.12.0</tag>
+    <tag>HEAD</tag>
   </scm>
   <distributionManagement>
     <snapshotRepository>
