@@ -319,10 +319,10 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-release-plugin</artifactId>
-          <version>2.5.3</version>
+          <version>3.0.0-M1</version>
           <configuration>
             <autoVersionSubmodules>true</autoVersionSubmodules>
-            <tagNameFormat>v@{project.version}</tagNameFormat>
+            <tagNameFormat>RELEASE-@{project.artifactId}-@{project.version}</tagNameFormat>
           </configuration>
         </plugin>
         <plugin>
