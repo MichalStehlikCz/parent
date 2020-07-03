@@ -1,54 +1,5 @@
-stages:
-  - gitcleanup
-  - build
-  - test
-  - deploy
-  - cleanup
- 
- 
-variables:
-  GIT_CLEAN_FLAGS: none
- 
- 
-git-cleanup:
-  stage: gitcleanup
-  tags:
-    - pvysbuilder-java-docker
-  script:
-    - git clean -f -d -x
- 
- 
-maven-build:
-  stage: build
-  tags:
-    - pvysbuilder-java-docker
-  script:
-    - mvn --settings /home/gitlab-runner/.m2/settings.xml compile
- 
- 
-maven-test:
-  stage: test
-  tags:
-    - pvysbuilder-java-docker
-  script:
-    - mvn --settings /home/gitlab-runner/.m2/settings.xml test
- 
- 
-maven-deploy:
-  stage: deploy
-  only:
-    variables:
-      - $CI_COMMIT_TAG =~ /^RELEASE-.*/ || $CI_COMMIT_TAG =~ /^SNAPSHOT-.*/
-  tags:
-    - pvysbuilder-java-docker
-  script:
-    - mvn --settings /home/gitlab-runner/.m2/settings.xml deploy -DskipTests
- 
- 
-maven-clean:
-  stage: cleanup
-  tags:
-    - pvysbuilder-java-docker
-  script:
-    - mvn --settings /home/gitlab-runner/.m2/settings.xml clean
-  when: always
+# .gitlab-ci.yml
+
+include:
+  - project: 'pvyscomponents/pipeline-templates'
+    file: '/java/.gitlab-ci-maven-test-deploy.yml'
