@@ -142,6 +142,7 @@
   <inspection_tool class="FieldHidesSuperclassField" enabled="true" level="WARNING" enabled_by_default="true">
     <option name="m_ignoreInvisibleFields" value="true" />
   </inspection_tool>
+  <inspection_tool class="FieldMayBeFinal" enabled="true" level="WARNING" enabled_by_default="true" />
   <inspection_tool class="FieldMayBeStatic" enabled="true" level="WARNING" enabled_by_default="true" />
   <inspection_tool class="FinalMethodInFinalClass" enabled="true" level="WARNING" enabled_by_default="true" />
   <inspection_tool class="Finalize" enabled="true" level="WARNING" enabled_by_default="true">
@@ -150,6 +151,7 @@
   <inspection_tool class="FinalizeNotProtected" enabled="true" level="WARNING" enabled_by_default="true" />
   <inspection_tool class="ForLoopReplaceableByWhile" enabled="true" level="WARNING" enabled_by_default="true">
     <option name="m_ignoreLoopsWithoutConditions" value="false" />
+    <option name="m_ignoreLoopsWithBody" value="false" />
   </inspection_tool>
   <inspection_tool class="HibernateResource" enabled="true" level="WARNING" enabled_by_default="true">
     <option name="insideTryAllowed" value="false" />
@@ -181,6 +183,7 @@
   <inspection_tool class="IntegerMultiplicationImplicitCastToLong" enabled="true" level="WARNING" enabled_by_default="true">
     <option name="ignoreNonOverflowingCompileTimeConstants" value="true" />
   </inspection_tool>
+  <inspection_tool class="IteratorHasNextCallsIteratorNext" enabled="true" level="WARNING" enabled_by_default="true" />
   <inspection_tool class="IteratorNextDoesNotThrowNoSuchElementException" enabled="true" level="WARNING" enabled_by_default="true" />
   <inspection_tool class="JDBCResource" enabled="true" level="WARNING" enabled_by_default="true">
     <option name="insideTryAllowed" value="false" />
@@ -195,6 +198,7 @@
   <inspection_tool class="LambdaParameterHidingMemberVariable" enabled="true" level="WARNING" enabled_by_default="true" />
   <inspection_tool class="LengthOneStringInIndexOf" enabled="true" level="WARNING" enabled_by_default="true" />
   <inspection_tool class="LengthOneStringsInConcatenation" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+  <inspection_tool class="ListIndexOfReplaceableByContains" enabled="true" level="WARNING" enabled_by_default="true" />
   <inspection_tool class="ListenerMayUseAdapter" enabled="true" level="WARNING" enabled_by_default="true">
     <option name="checkForEmptyMethods" value="true" />
   </inspection_tool>
