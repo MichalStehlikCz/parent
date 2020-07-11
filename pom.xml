@@ -35,7 +35,7 @@
         <version>3.0.0-M1</version>
         <configuration>
           <autoVersionSubmodules>true</autoVersionSubmodules>
-          <tagNameFormat>RELEASE-@{project.artifactId}-@{project.version}</tagNameFormat>
+          <tagNameFormat>RELEASE-parent-@{project.version}</tagNameFormat>
         </configuration>
       </plugin>
     </plugins>
