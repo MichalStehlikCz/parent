@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<!DOCTYPE suppressions PUBLIC
+  "-//Checkstyle//DTD SuppressionFilter Configuration 1.2//EN"
+  "https://checkstyle.org/dtds/suppressions_1_2.dtd">
+<!-- Suppression filter for checkstyle plugin - will exclude files generated to target directory
+ from checks -->
+<suppressions>
+  <suppress files="[/\\]target[/\\]" checks=".*"/>
+</suppressions>
