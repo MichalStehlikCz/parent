@@ -172,7 +172,7 @@
             <dependency>
               <groupId>com.provys.parent</groupId>
               <artifactId>parent-tools</artifactId>
-              <version>${project.version}</version>
+              <version>1.13.0</version>
             </dependency>
           </dependencies>
           <executions>
