@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.provys.parent</groupId>
   <artifactId>module</artifactId>
-  <version>1.13.1</version>
+  <version>1.13.2-SNAPSHOT</version>
   <modules>
     <module>parent-tools</module>
     <module>parent</module>
@@ -15,7 +15,7 @@
   <scm>
     <developerConnection>scm:git:git@git.dcit.cz:pvyscomponents/java/libs/parent.git
     </developerConnection>
-    <tag>RELEASE-parent-1.13.1</tag>
+    <tag>HEAD</tag>
   </scm>
   <distributionManagement>
     <snapshotRepository>
