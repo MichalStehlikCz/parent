@@ -14,6 +14,21 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
+  <profiles>
+    <profile>
+      <id>skip-attach</id>
+      <properties>
+        <maven.source.skip>true</maven.source.skip>
+        <maven.javadoc.skip>true</maven.javadoc.skip>
+      </properties>
+    </profile>
+    <profile>
+      <id>skip-integration-tests</id>
+      <properties>
+        <skipITs>false</skipITs>
+      </properties>
+    </profile>
+  </profiles>
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -253,7 +268,7 @@
           <version>3.2.1</version>
           <executions>
             <execution>
-              <id>source-attach</id>
+              <id>source-jar</id>
               <goals>
                 <goal>jar</goal>
               </goals>
@@ -341,7 +356,7 @@
           <version>3.0.0-M1</version>
           <configuration>
             <autoVersionSubmodules>true</autoVersionSubmodules>
-            <tagNameFormat>RELEASE-@{project.artifactId}-@{project.version}</tagNameFormat>
+            <tagNameFormat>RELEASE-@{artifactId}-@{version}</tagNameFormat>
           </configuration>
         </plugin>
         <plugin>
@@ -392,6 +407,10 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
