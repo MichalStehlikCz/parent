@@ -14,21 +14,6 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-  <profiles>
-    <profile>
-      <id>skip-attach</id>
-      <properties>
-        <maven.source.skip>true</maven.source.skip>
-        <maven.javadoc.skip>true</maven.javadoc.skip>
-      </properties>
-    </profile>
-    <profile>
-      <id>skip-integration-tests</id>
-      <properties>
-        <skipITs>false</skipITs>
-      </properties>
-    </profile>
-  </profiles>
   <dependencyManagement>
     <dependencies>
       <dependency>
