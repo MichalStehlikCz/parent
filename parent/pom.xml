@@ -412,6 +412,10 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-release-plugin</artifactId>
+        <configuration>
+          <autoVersionSubmodules>true</autoVersionSubmodules>
+          <tagNameFormat>RELEASE-@{project.artifactId}-@{project.version}</tagNameFormat>
+        </configuration>
       </plugin>
     </plugins>
   </build>
