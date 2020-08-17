@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.provys.parent</groupId>
@@ -13,6 +15,12 @@
   <packaging>pom</packaging>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <!-- set to true if you want to run integration tests -->
+    <skip.integration.tests>false</skip.integration.tests>
+    <!-- set to generate-test-sources if you want to run integration tests-->
+    <it.generate.test.sources.phase>none</it.generate.test.sources.phase>
+    <!-- set to generate-test-resources if you want to run integration tests-->
+    <it.generate.test.resources.phase>none</it.generate.test.resources.phase>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -166,7 +174,7 @@
                     <banRelease>true</banRelease>
                     <banSnapshots>false</banSnapshots>
                   </requirePluginVersions>
-                  <dependencyConvergence />
+                  <dependencyConvergence/>
                 </rules>
               </configuration>
             </execution>
@@ -321,11 +329,53 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>3.0.0-M5</version>
+          <configuration>
+            <argLine>-Dspring.profiles.active=test</argLine>
+          </configuration>
+        </plugin>
+        <plugin>
+          <!-- usual usage is to add integration test directories to build path -->
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>build-helper-maven-plugin</artifactId>
+          <version>3.2.0</version>
+          <executions>
+            <execution>
+              <id>add-integration-test-sources</id>
+              <phase>${it.generate.test.sources.phase}</phase>
+              <goals>
+                <goal>add-test-source</goal>
+              </goals>
+              <configuration>
+                <sources>
+                  <source>src/it/java</source>
+                </sources>
+              </configuration>
+            </execution>
+            <execution>
+              <id>add-integration-test-resources</id>
+              <phase>${it.generate.test.resources.phase}</phase>
+              <goals>
+                <goal>add-test-resource</goal>
+              </goals>
+              <configuration>
+                <resources>
+                  <resource>
+                    <filtering>true</filtering>
+                    <directory>src/it/resources</directory>
+                  </resource>
+                </resources>
+              </configuration>
+            </execution>
+          </executions>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-failsafe-plugin</artifactId>
           <version>3.0.0-M5</version>
+          <configuration>
+            <skipITs>${skip.integration.tests}</skipITs>
+            <argLine>-Dspring.profiles.active=it</argLine>
+          </configuration>
           <executions>
             <execution>
               <id>failsafe-IT</id>
@@ -417,6 +467,10 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
