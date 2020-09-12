@@ -1,5 +1,8 @@
-**/target/
-/.idea/
-**/*.iml
+.idea
+target
+*.iml
+*.log
+pom.xml.*
+release.properties
 
 /intellij/settings.zip
