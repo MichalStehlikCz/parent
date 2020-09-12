@@ -36,6 +36,7 @@
         <configuration>
           <autoVersionSubmodules>true</autoVersionSubmodules>
           <tagNameFormat>RELEASE-parent-@{project.version}</tagNameFormat>
+          <resume>false</resume>
         </configuration>
       </plugin>
     </plugins>

@@ -495,6 +495,7 @@
         <configuration>
           <autoVersionSubmodules>true</autoVersionSubmodules>
           <tagNameFormat>RELEASE-@{project.artifactId}-@{project.version}</tagNameFormat>
+          <resume>false</resume>
         </configuration>
       </plugin>
     </plugins>
