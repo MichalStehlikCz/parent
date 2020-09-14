@@ -445,6 +445,19 @@
           </executions>
         </plugin>
         <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>jaxb2-maven-plugin</artifactId>
+          <version>2.5.0</version>
+          <executions>
+            <execution>
+              <id>xjc</id>
+              <goals>
+                <goal>xjc</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
           <!-- usual usage is to inject suppress warnings to generated sources - see provysdb/parser -->
           <groupId>com.google.code.maven-replacer-plugin</groupId>
           <artifactId>maven-replacer-plugin</artifactId>
