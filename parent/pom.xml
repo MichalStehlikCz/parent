@@ -255,9 +255,8 @@
               <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED</arg>
               <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED</arg>
               <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED</arg>
-              <!--generated xjc files should be ignored, assertj is not annotated -->
-              <arg>-AskipUses=^org\.assertj\.|\.xjc\.</arg>
-              <arg>-AskipDefs=\.xjc\.</arg>
+              <!--generated wsdl files should be ignored, assertj is not annotated -->
+              <arg>-AskipUses=^org\.assertj\.</arg>
               <arg>-Werror</arg>
               <arg>-Xlint:all</arg>
               <arg>-Xlint:-processing</arg>
