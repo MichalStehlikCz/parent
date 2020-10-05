@@ -372,7 +372,7 @@
           <configuration>
             <skipITs>${skip.integration.tests}</skipITs>
             <classesDirectory>${project.build.outputDirectory}</classesDirectory>
-            <argLine>-Dspring.profiles.active=it</argLine>
+            <argLine>-Dspring.profiles.active=test</argLine>
           </configuration>
           <executions>
             <execution>
