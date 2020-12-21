@@ -13,7 +13,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <scm>
-    <developerConnection>scm:git:git@git.dcit.cz:pvyscomponents/java/libs/parent.git
+    <developerConnection>scm:git:git@git.dcit.cz:pvyscomponents/java/libs/kernel/parent.git
     </developerConnection>
     <tag>HEAD</tag>
   </scm>
