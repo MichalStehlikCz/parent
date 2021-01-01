@@ -238,7 +238,7 @@
               <path>
                 <groupId>org.checkerframework</groupId>
                 <artifactId>checker</artifactId>
-                <version>3.7.0</version>
+                <version>3.8.0</version>
               </path>
               <path>
                 <groupId>com.google.errorprone</groupId>
