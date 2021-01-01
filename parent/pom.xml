@@ -251,6 +251,7 @@
               </annotationProcessor>
             </annotationProcessors>
             <compilerArgs>
+              <arg>-parameters</arg>
               <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED</arg>
               <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED</arg>
               <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED</arg>
