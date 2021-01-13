@@ -24,7 +24,7 @@
   <inspection_tool class="AssignmentUsedAsCondition" enabled="true" level="WARNING" enabled_by_default="true" />
   <inspection_tool class="AutoCloseableResource" enabled="true" level="WARNING" enabled_by_default="true">
     <option name="ignoredTypes" value="java.util.stream.Stream,java.util.stream.IntStream,java.util.stream.LongStream,java.util.stream.DoubleStream,java.io.StringReader,java.io.StringWriter" />
-    <option name="METHOD_MATCHER_CONFIG" value="java.util.Formatter,format,java.io.Writer,append,com.google.common.base.Preconditions,checkNotNull,org.hibernate.Session,close,java.io.PrintWriter,printf,com.provys.db.sqlquery.query.SelectStatementTImpl,org.mockito.stubbing.Stubber,when,org.mockito.ArgumentCaptor,getValue" />
+    <option name="METHOD_MATCHER_CONFIG" value="java.util.Formatter,format,java.io.Writer,append,com.google.common.base.Preconditions,checkNotNull,org.hibernate.Session,close,java.io.PrintWriter,printf,com.provys.db.sqlquery.query.SelectStatementTImpl,org.mockito.stubbing.Stubber,when,org.mockito.ArgumentCaptor,getValue," />
   </inspection_tool>
   <inspection_tool class="BadExceptionThrown" enabled="true" level="WARNING" enabled_by_default="true">
     <option name="exceptionsString" value="" />
@@ -43,7 +43,7 @@
   <inspection_tool class="BigDecimalLegacyMethod" enabled="true" level="WARNING" enabled_by_default="true" />
   <inspection_tool class="BooleanExpressionMayBeConditional" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
   <inspection_tool class="BoundedWildcard" enabled="true" level="WARNING" enabled_by_default="true" />
-  <inspection_tool class="BreakStatement" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+  <inspection_tool class="BreakStatement" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
   <inspection_tool class="CallToStringConcatCanBeReplacedByOperator" enabled="true" level="WARNING" enabled_by_default="true" />
   <inspection_tool class="CastConflictsWithInstanceof" enabled="true" level="WARNING" enabled_by_default="true" />
   <inspection_tool class="CastToIncompatibleInterface" enabled="true" level="WARNING" enabled_by_default="true" />
@@ -117,7 +117,7 @@
     <option name="ignoreThrowables" value="true" />
     <option name="commentsAreContent" value="true" />
   </inspection_tool>
-  <inspection_tool class="EmptyDirectory" enabled="true" level="WARNING" enabled_by_default="true">
+  <inspection_tool class="EmptyDirectory" enabled="false" level="WARNING" enabled_by_default="false">
     <option name="onlyReportDirectoriesUnderSourceRoots" value="true" />
   </inspection_tool>
   <inspection_tool class="EnumSwitchStatementWhichMissesCases" enabled="true" level="WARNING" enabled_by_default="true">
@@ -337,6 +337,9 @@
   <inspection_tool class="ReturnSeparatedFromComputation" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
   <inspection_tool class="ReuseOfLocalVariable" enabled="true" level="WARNING" enabled_by_default="true" />
   <inspection_tool class="SamePackageImport" enabled="true" level="WARNING" enabled_by_default="true" />
+  <inspection_tool class="SameParameterValue" enabled="true" level="WARNING" enabled_by_default="true">
+    <option name="highestModifier" value="packageLocal" />
+  </inspection_tool>
   <inspection_tool class="SerialPersistentFieldsWithWrongSignature" enabled="true" level="WARNING" enabled_by_default="true" />
   <inspection_tool class="SerialVersionUIDNotStaticFinal" enabled="true" level="WARNING" enabled_by_default="true" />
   <inspection_tool class="SerializableHasSerialVersionUIDField" enabled="true" level="WARNING" enabled_by_default="true">
@@ -450,7 +453,7 @@
     <option name="ignoreClassesWithOnlyMain" value="false" />
   </inspection_tool>
   <inspection_tool class="VariableNotUsedInsideIf" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
-  <inspection_tool class="ZeroLengthArrayInitialization" enabled="true" level="WARNING" enabled_by_default="true" />
+  <inspection_tool class="ZeroLengthArrayInitialization" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
   <inspection_tool class="unused" enabled="false" level="WARNING" enabled_by_default="false">
     <option name="LOCAL_VARIABLE" value="true" />
     <option name="FIELD" value="true" />
