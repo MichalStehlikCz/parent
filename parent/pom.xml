@@ -464,7 +464,8 @@
               </goals>
               <configuration>
                 <projectName>${project.name}</projectName>
-                <outputDirectory>${builddir}/cucumber</outputDirectory>
+                <outputDirectory>${project.build.directory}</outputDirectory>
+                <inputDirectory>${project.build.directory}/cucumber</inputDirectory>
                 <jsonFiles>
                   <param>*.json</param>
                 </jsonFiles>
