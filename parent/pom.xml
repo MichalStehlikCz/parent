@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.provys.parent</groupId>
@@ -19,7 +21,32 @@
     <it.generate.test.sources.phase>none</it.generate.test.sources.phase>
     <!-- set to generate-test-resources if you want to run integration tests-->
     <it.generate.test.resources.phase>none</it.generate.test.resources.phase>
+    <!-- set to verify if you want to produce Cucumber test reports -->
+    <cucumber.generate.report.phase>none</cucumber.generate.report.phase>
   </properties>
+  <!-- To allow integration tests, use following construct; it will include integration sources and
+  resources in compilation and enable failsafe plugin
+  <profiles>
+    <profile>
+      <id>include-integration-test</id>
+      <properties>
+        <skip.integration.tests>false</skip.integration.tests>
+        <it.generate.test.sources.phase>generate-test-sources</it.generate.test.sources.phase>
+        <it.generate.test.resources.phase>generate-test-resources</it.generate.test.resources.phase>
+      </properties>
+    </profile>
+  </profiles>
+  -->
+  <!-- Turn on Cucumber report generation. Use only if there are Cucumber tests in module.
+  <profiles>
+    <profile>
+      <id>produce-cucumber-reports</id>
+      <properties>
+        <cucumber.generate.report.phase>verify</cucumber.generate.report.phase>
+      </properties>
+    </profile>
+  </profiles>
+  -->
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -141,6 +168,26 @@
         <version>4.5.8.Final</version>
       </dependency>
       <dependency>
+        <groupId>io.cucumber</groupId>
+        <artifactId>cucumber-java</artifactId>
+        <version>6.9.1</version>
+      </dependency>
+      <dependency>
+        <groupId>io.cucumber</groupId>
+        <artifactId>cucumber-java8</artifactId>
+        <version>6.9.1</version>
+      </dependency>
+      <dependency>
+        <groupId>io.cucumber</groupId>
+        <artifactId>cucumber-junit-platform-engine</artifactId>
+        <version>6.9.1</version>
+      </dependency>
+      <dependency>
+        <groupId>io.cucumber</groupId>
+        <artifactId>cucumber-spring</artifactId>
+        <version>6.9.1</version>
+      </dependency>
+      <dependency>
         <groupId>org.eclipse.jgit</groupId>
         <artifactId>org.eclipse.jgit</artifactId>
         <version>5.10.0.202012080955-r</version>
@@ -177,7 +224,7 @@
                     <banRelease>true</banRelease>
                     <banSnapshots>false</banSnapshots>
                   </requirePluginVersions>
-                  <dependencyConvergence />
+                  <dependencyConvergence/>
                 </rules>
               </configuration>
             </execution>
@@ -328,12 +375,47 @@
           <artifactId>maven-plugin-plugin</artifactId>
           <version>3.6.0</version>
         </plugin>
+        <!--plugin> previously used to translate path for cucumber, left here in case it is needed later
+          <groupId>org.codehaus.gmaven</groupId>
+          <artifactId>groovy-maven-plugin</artifactId>
+          <version>2.1.1</version>
+          <dependencies>
+            <dependency>
+              <groupId>org.codehaus.groovy</groupId>
+              <artifactId>groovy-all</artifactId>
+              <version>3.0.7</version>
+              <type>pom</type>
+            </dependency>
+          </dependencies>
+          <executions>
+            <execution>
+              <id>setproperty</id>
+              <phase>validate</phase>
+              <goals>
+                <goal>execute</goal>
+              </goals>
+              <configuration>
+                <source>
+                  project.properties.setProperty('builddir', project.build.directory.replace(File.separator, '/'));
+                </source>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin-->
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
-          <version>3.0.0-M5</version>
+          <!-- versions 3.0.0-M4 and M5 have problem that causes Cucumber tests not being reported;
+          Do not update to these versions, if newer version is available, check that Cucumber tests
+          run and are reported properly [MS210111-0598BAA] -->
+          <version>3.0.0-M3</version>
           <configuration>
             <argLine>-Dspring.profiles.active=test</argLine>
+            <systemPropertyVariables>
+              <cucumber.publish.quiet>true</cucumber.publish.quiet>true
+              <cucumber.glue>features,com.provys</cucumber.glue>
+              <cucumber.plugin>pretty,json:${project.build.directory}/cucumber/it.json</cucumber.plugin>
+            </systemPropertyVariables>
           </configuration>
         </plugin>
         <plugin>
@@ -372,13 +454,43 @@
           </executions>
         </plugin>
         <plugin>
+          <groupId>net.masterthought</groupId>
+          <artifactId>maven-cucumber-reporting</artifactId>
+          <version>5.4.0</version>
+          <executions>
+            <execution>
+              <id>execution</id>
+              <phase>${cucumber.generate.report.phase}</phase>
+              <goals>
+                <goal>generate</goal>
+              </goals>
+              <configuration>
+                <projectName>${project.name}</projectName>
+                <outputDirectory>${builddir}/cucumber</outputDirectory>
+                <jsonFiles>
+                  <param>*.json</param>
+                </jsonFiles>
+                <skippedFails>true</skippedFails>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-failsafe-plugin</artifactId>
-          <version>3.0.0-M5</version>
+          <version>3.0.0-M3</version>
+          <!-- versions 3.0.0-M4 and M5 have problem that causes Cucumber tests not being reported;
+          Do not update to these versions, if newer version is available, check that Cucumber tests
+          run and are reported properly [MS210111-0598BAA] -->
           <configuration>
             <skipITs>${skip.integration.tests}</skipITs>
             <classesDirectory>${project.build.outputDirectory}</classesDirectory>
             <argLine>-Dspring.profiles.active=test</argLine>
+            <systemPropertyVariables>
+              <cucumber.publish.quiet>true</cucumber.publish.quiet>true
+              <cucumber.glue>features,com.provys</cucumber.glue>
+              <cucumber.plugin>pretty,json:${project.build.directory}/cucumber/it.json</cucumber.plugin>
+            </systemPropertyVariables>
           </configuration>
           <executions>
             <execution>
@@ -498,6 +610,11 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>build-helper-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <!-- Should be placed before failsafe to generate reports even for failed build -->
+        <groupId>net.masterthought</groupId>
+        <artifactId>maven-cucumber-reporting</artifactId>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
