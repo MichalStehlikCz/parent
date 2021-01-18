@@ -484,7 +484,6 @@
                 <jsonFiles>
                   <param>*.json</param>
                 </jsonFiles>
-                <skippedFails>true</skippedFails>
               </configuration>
             </execution>
           </executions>
