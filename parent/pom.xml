@@ -330,6 +330,7 @@
               <arg>-XDcompilePolicy=simple</arg>
               <arg>-Xplugin:ErrorProne
                 -Xep:EqualsGetClass:OFF
+                -Xep:MixedMutabilityReturnType:OFF
               </arg>
             </compilerArgs>
           </configuration>
