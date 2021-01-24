@@ -13,18 +13,21 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <scm>
-    <developerConnection>scm:git:git@git.dcit.cz:pvyscomponents/java/libs/kernel/parent.git
-    </developerConnection>
+    <developerConnection>scm:git:https://github.com/MichalStehlikCz/parent.git</developerConnection>
     <tag>HEAD</tag>
   </scm>
-  <distributionManagement>
-    <snapshotRepository>
-      <id>provys-maven-snapshots</id>
-      <url>http://pvysnexus.dcit.cz:8081/repository/provys-maven-snapshots/</url>
-    </snapshotRepository>
+  <repositories>
     <repository>
-      <id>provys-maven-releases</id>
-      <url>http://pvysnexus.dcit.cz:8081/repository/provys-maven-releases/</url>
+      <id>central</id>
+      <name>Maven Central</name>
+      <url>https://repo1.maven.org/maven2</url>
+    </repository>
+  </repositories>
+  <distributionManagement>
+    <repository>
+      <id>github</id>
+      <name>GitHub MichalStehlikCz Maven Packages</name>
+      <url>https://maven.pkg.github.com/MichalStehlikCz/Maven</url>
     </repository>
   </distributionManagement>
   <build>
