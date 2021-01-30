@@ -22,6 +22,11 @@
       <name>Maven Central</name>
       <url>https://repo1.maven.org/maven2</url>
     </repository>
+    <repository>
+      <id>github</id>
+      <name>GitHub OWNER Apache Maven Packages</name>
+      <url>https://maven.pkg.github.com/MichalStehlikCz/Maven</url>
+    </repository>
   </repositories>
   <distributionManagement>
     <repository>
